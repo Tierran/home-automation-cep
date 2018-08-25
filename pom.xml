@@ -7,8 +7,8 @@
 	<version>0.1.11</version>
 	<name>CEP Server</name>
 	<properties>
-		<version.org.drools>7.5.0.Final-redhat-4</version.org.drools>
-		<version.org.jbpm>7.5.0.Final-redhat-4</version.org.jbpm>
+		<version.org.drools>7.9.0.Final</version.org.drools>
+		<version.org.jbpm>7.9.0.Final</version.org.jbpm>
 		<version.camel>2.20.1</version.camel>
 	</properties>
 	<distributionManagement>
