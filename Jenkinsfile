@@ -10,6 +10,7 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying....'
+	sh 'mvn -f pom.xml deploy'
       }
     }
   }
