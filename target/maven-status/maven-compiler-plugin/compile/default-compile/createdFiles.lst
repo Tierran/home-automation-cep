@@ -1,0 +1,5 @@
+com/ninetailsoftware/kie/engine/listener/FactUpdateListener.class
+com/ninetailsoftware/rest/service/BrmsRestAPI.class
+com/ninetailsoftware/kie/engine/KieEngine.class
+com/ninetailsoftware/mqtt/client/MqttClientWrapper.class
+com/ninetailsoftware/kie/engine/KieEngine$1.class
