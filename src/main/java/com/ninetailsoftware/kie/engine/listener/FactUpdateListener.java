@@ -1,10 +1,5 @@
 package com.ninetailsoftware.kie.engine.listener;
 
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.kie.api.event.rule.ObjectDeletedEvent;
 import org.kie.api.event.rule.ObjectInsertedEvent;
 import org.kie.api.event.rule.ObjectUpdatedEvent;
@@ -54,8 +49,10 @@ public class FactUpdateListener implements RuleRuntimeEventListener {
 	}
 
 	public void objectDeleted(ObjectDeletedEvent event) {
-		// TODO Auto-generated method stub
-
+		if (event.getOldObject().toString().contains("com.ninetailsoftware.model.events.HaEvent")) {
+			HaEvent haEvent = (HaEvent) event.getOldObject();
+			log.info("Event Deleted: " + haEvent.getDeviceId());
+		}
 	}
 
 }
