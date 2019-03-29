@@ -19,12 +19,6 @@
 			org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
 		</servlet-class>
 	</servlet>
-	<servlet>
-		<servlet-name>StartEngine</servlet-name>
-		<servlet-class>com.ninetailsoftware.kie.engine.StartUp
-		</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
 
 	<context-param>
 		<param-name>resteasy.scan</param-name>
