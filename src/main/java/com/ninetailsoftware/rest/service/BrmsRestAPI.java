@@ -27,13 +27,6 @@ public class BrmsRestAPI {
 	public BrmsRestAPI(){
 		kieEngine = new KieEngine();
 	}
-	
-	@GET
-	@Path("/event-count/{event-id}")
-	public Response queryEventCount(@PathParam("event-id") String eventId){
-		String _retVal = "Total event count is " + kieEngine.queryEventCount(eventId);
-		return Response.status(201).entity(_retVal).build();
-	}
 
 	@GET
 	@Path("/fire-until-halt")

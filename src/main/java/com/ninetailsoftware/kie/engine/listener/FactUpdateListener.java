@@ -49,6 +49,7 @@ public class FactUpdateListener implements RuleRuntimeEventListener {
 	}
 
 	public void objectDeleted(ObjectDeletedEvent event) {
+		log.info("Detected Object Deleted Event");
 		if (event.getOldObject().toString().contains("com.ninetailsoftware.model.events.HaEvent")) {
 			HaEvent haEvent = (HaEvent) event.getOldObject();
 			log.info("Event Deleted: " + haEvent.getDeviceId());
