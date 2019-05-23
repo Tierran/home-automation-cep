@@ -49,6 +49,24 @@ public class MqttClientWrapper {
 			this.sendMessage(message);
 		}
 	}
+	
+	public void sendMessage(String message, String topic) {
+
+		try {
+			log.info("Publishing message: " + content);
+			MqttMessage mqttMessage = new MqttMessage(message.getBytes());
+			mqttMessage.setQos(qos);
+			mqttClient.publish(topic, mqttMessage);
+			log.info("Message published");
+		} catch (MqttPersistenceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MqttException e) {
+			log.error(e.getMessage());
+			this.createClient();
+			this.sendMessage(message);
+		}
+	}
 
 	private void createClient() {
 		InputStream is = this.getClass().getClassLoader().getResourceAsStream("home-automation-cep.properties");

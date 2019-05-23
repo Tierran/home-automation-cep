@@ -41,6 +41,12 @@ public class BrmsRestAPI {
 		return Response.status(201).entity("Success!").build();
 	}
 	
+	@GET
+	@Path("/event-count")
+	public Response eventCount() {
+		return Response.status(200).entity(kieEngine.queryEventCount("24")).build();
+	}
+	
 	@POST
 	@Path("/insert-facts")
 	@Consumes("application/json")

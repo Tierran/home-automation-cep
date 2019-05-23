@@ -4,12 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ninetailsoftware</groupId>
 	<artifactId>home-automation-cep</artifactId>
-	<version>0.2.4</version>
+	<version>0.5.0</version>
 	<name>CEP Server</name>
 	<properties>
-		<version.org.drools>7.9.0.Final</version.org.drools>
-		<version.org.jbpm>7.9.0.Final</version.org.jbpm>
-		<version.camel>2.20.1</version.camel>
+		<version.org.drools>7.20.0.Final</version.org.drools>
+		<version.org.jbpm>7.20.0.Final</version.org.jbpm>
 	</properties>
 	<distributionManagement>
 		<repository>
@@ -89,7 +88,7 @@
 		<dependency>
 			<groupId>com.ninetailsoftware</groupId>
 			<artifactId>HomeAutomationModel</artifactId>
-			<version>LATEST</version>
+			<version>0.2.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.drools</groupId>
