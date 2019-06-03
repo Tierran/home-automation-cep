@@ -25,7 +25,7 @@ public class FactUpdateListener implements RuleRuntimeEventListener {
 			Device device = (Device) event.getObject();
 			log.info("Device Inserted: " + device.getId() + " : " + device.getStatus());
 
-			if (device.getSource() != null && !device.getSource().equals("homeseer")) {
+			if (device.getSource() != null && device.getSource().equals("homeseer") && device.isSendUpdate()) {
 				MqttClientWrapper mqttClient = new MqttClientWrapper();
 				String message = device.getId();
 				mqttClient.sendMessage(message);
