@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ninetailsoftware</groupId>
 	<artifactId>home-automation-cep</artifactId>
-	<version>0.5.1</version>
+	<version>0.5.2</version>
 	<name>CEP Server</name>
 	<properties>
 		<version.org.drools>7.20.0.Final</version.org.drools>
