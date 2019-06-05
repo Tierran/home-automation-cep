@@ -16,14 +16,13 @@ public class FactUpdateListener implements RuleRuntimeEventListener {
 	Logger log = LoggerFactory.getLogger(FactUpdateListener.class);
 
 	public void objectInserted(ObjectInsertedEvent event) {
-		log.info("Detected Object Inserted Event : " + event.getObject().toString());
+		log.debug("Detected Object Inserted Event : " + event.getObject().toString());
 
 		if (event.getObject().toString().contains("com.ninetailsoftware.model.events.HaEvent")) {
-			HaEvent haEvent = (HaEvent) event.getObject();
-			log.info("Event Inserted: " + haEvent.getDeviceId());
+			//TODO: New events created by Drools are going to be persisted once I implement event persistence
 		} else {
 			Device device = (Device) event.getObject();
-			log.info("Device Inserted: " + device.getId() + " : " + device.getStatus());
+			log.debug("Device Inserted: " + device.getId() + " : " + device.getStatus());
 
 			if (device.getSource() != null && device.getSource().equals("homeseer") && device.isSendUpdate()) {
 				MqttClientWrapper mqttClient = new MqttClientWrapper();
@@ -39,11 +38,11 @@ public class FactUpdateListener implements RuleRuntimeEventListener {
 	}
 
 	public void objectUpdated(ObjectUpdatedEvent event) {
-		log.info("Detected Object Update Event : " + event.getObject().toString());
+		log.debug("Detected Object Update Event : " + event.getObject().toString());
 
 		Device device = (Device) event.getObject();
 
-		log.info("Device Updated: " + device.getId() + " : " + device.getStatus());
+		log.debug("Device Updated: " + device.getId() + " : " + device.getStatus());
 
 		if (device.getSource() != null && device.getSource().equals("homeseer") && device.isSendUpdate()) {
 			MqttClientWrapper mqttClient = new MqttClientWrapper();
@@ -53,10 +52,10 @@ public class FactUpdateListener implements RuleRuntimeEventListener {
 	}
 
 	public void objectDeleted(ObjectDeletedEvent event) {
-		log.info("Detected Object Deleted Event");
+		log.debug("Detected Object Deleted Event");
 		if (event.getOldObject().toString().contains("com.ninetailsoftware.model.events.HaEvent")) {
 			HaEvent haEvent = (HaEvent) event.getOldObject();
-			log.info("Event Deleted: " + haEvent.getDeviceId());
+			log.debug("Event Deleted: " + haEvent.getDeviceId());
 		}
 	}
 
