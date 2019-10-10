@@ -19,8 +19,9 @@ public class FactUpdateListener implements RuleRuntimeEventListener {
 		log.debug("Detected Object Inserted Event : " + event.getObject().toString());
 
 		if (event.getObject().toString().contains("com.ninetailsoftware.model.events.HaEvent")) {
-			//TODO: New events created by Drools are going to be persisted once I implement event persistence
-		} else {
+			// TODO: New events created by Drools are going to be persisted once I implement
+			// event persistence
+		} else if (!event.getObject().toString().contains("Room")) {
 			Device device = (Device) event.getObject();
 			log.debug("Device Inserted: " + device.getId() + " : " + device.getStatus());
 
@@ -40,14 +41,19 @@ public class FactUpdateListener implements RuleRuntimeEventListener {
 	public void objectUpdated(ObjectUpdatedEvent event) {
 		log.debug("Detected Object Update Event : " + event.getObject().toString());
 
-		Device device = (Device) event.getObject();
+		if (event.getObject().toString().contains("com.ninetailsoftware.model.events.HaEvent")) {
+			// TODO: New events created by Drools are going to be persisted once I implement
+			// event persistence
+		} else if (!event.getObject().toString().contains("Room")) {
+			Device device = (Device) event.getObject();
 
-		log.debug("Device Updated: " + device.getId() + " : " + device.getStatus());
+			log.debug("Device Updated: " + device.getId() + " : " + device.getStatus());
 
-		if (device.getSource() != null && device.getSource().equals("homeseer") && device.isSendUpdate()) {
-			MqttClientWrapper mqttClient = new MqttClientWrapper();
-			String message = device.getId() + "," + device.getStatus();
-			mqttClient.sendMessage(message);
+			if (device.getSource() != null && device.getSource().equals("homeseer") && device.isSendUpdate()) {
+				MqttClientWrapper mqttClient = new MqttClientWrapper();
+				String message = device.getId() + "," + device.getStatus();
+				mqttClient.sendMessage(message);
+			}
 		}
 	}
 
@@ -58,5 +64,4 @@ public class FactUpdateListener implements RuleRuntimeEventListener {
 			log.debug("Event Deleted: " + haEvent.getDeviceId());
 		}
 	}
-
 }
