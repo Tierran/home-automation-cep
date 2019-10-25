@@ -107,7 +107,6 @@ public class KieEngine {
 		if(kSessions.containsKey(groupId + artifactId)){
 			KieSession kSession = kSessions.get(groupId + artifactId);
 			kSession.halt();
-			
 		}
 	}
 	

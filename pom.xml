@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ninetailsoftware</groupId>
 	<artifactId>home-automation-cep</artifactId>
-	<version>0.5.5</version>
+	<version>0.5.6</version>
 	<name>CEP Server</name>
 	<properties>
 		<version.org.drools>7.20.0.Final</version.org.drools>
@@ -91,7 +91,7 @@
 		<dependency>
 			<groupId>com.ninetailsoftware</groupId>
 			<artifactId>HomeAutomationModel</artifactId>
-			<version>LATEST</version>
+			<version>0.5.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.drools</groupId>
@@ -120,10 +120,9 @@
 			<version>1.2.2</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.1</version>
-			<scope>provided</scope>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>4.0.3</version>
 		</dependency>
 	</dependencies>
 	<packaging>war</packaging>
